@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+
+  mongo-db:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  server:
+    build: ProyectoEA_Backend
+    image: backend
+    ports:
+      - '3000:3000'
+    links:
+      - mongo-db
+
+  client:
+    build: ProyectoEA_Frontend
+    image: frontend
+    ports:
+      - '80:80'
+
+
+
+
+
